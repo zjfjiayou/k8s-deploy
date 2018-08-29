@@ -16,7 +16,8 @@ pause-amd64:${KUBE_PAUSE_VERSION}
 pause:${KUBE_PAUSE_VERSION})
 
 
-for imageName in ${images[@]} ; do
+for image in ${images[@]}
+do
   docker pull ${username}/${image}
   tmp=${image/google-containers./}
   docker tag ${username}/${image} k8s.gcr.io/${tmp}
